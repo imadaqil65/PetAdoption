@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Domain.Adoption.PendingAdoption">
+    <Position X="4.5" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ICEBAAAAAAhAAAAAAAAAgAAAAAAQAAAAIQAIAAAABAA=</HashCode>
+      <FileName>Adoption\PendingAdoption.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Animal" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Animals.Animal">
+    <Position X="7.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAAAAAgQACAIAAAgAAAAAAEABIBAAAAAQAABgA=</HashCode>
+      <FileName>Animals\Animal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Gender" />
+      <Property Name="Species" />
+      <Property Name="Shelter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Animals.Bird">
+    <Position X="4" Y="6" Width="1.75" />
+    <AssociationLine Name="ActivityLevel" Type="Domain.enums.ActivityLevel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="7.125" />
+        <Point X="3.625" Y="7.125" />
+        <Point X="3.625" Y="5.562" />
+        <Point X="3.25" Y="5.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgIAAAAAAAAAAAAQAAAAAAAAIAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animals\Bird.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ActivityLevel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Animals.Cat">
+    <Position X="11.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAEAEAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animals\Cat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Animals.Dog">
+    <Position X="6.5" Y="6" Width="1.75" />
+    <AssociationLine Name="ActivityLevel" Type="Domain.enums.ActivityLevel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.906" Y="6" />
+        <Point X="6.906" Y="5.562" />
+        <Point X="3.25" Y="5.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAgAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAI=</HashCode>
+      <FileName>Animals\Dog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ActivityLevel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Domain.Animals.Hamster">
+    <Position X="9" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAI=</HashCode>
+      <FileName>Animals\Hamster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Shelters.Shelter">
+    <Position X="13" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAIEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Shelters\Shelter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Users.User">
+    <Position X="1.75" Y="1.5" Width="1.75" />
+    <AssociationLine Name="Animal" Type="Domain.Animals.Animal" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="4.125" />
+        <Point X="4.134" Y="4.125" />
+        <Point X="4.134" Y="5.036" />
+        <Point X="7.375" Y="5.036" />
+        <Point X="7.375" Y="4" />
+        <Point X="7.75" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.44" Y="-1.214" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAhAAAAgBAAAAAEACAIAAAAAIAAAAgAAAgA=</HashCode>
+      <FileName>Users\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Animal" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Domain.enums.ActivityLevel">
+    <Position X="1.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>enums\ActivityLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Domain.enums.Gender">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>enums\Gender.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Domain.enums.Species">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAAAAAAIAAACABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>enums\Species.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

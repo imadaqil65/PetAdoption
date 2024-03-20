@@ -1,0 +1,63 @@
+﻿@page
+@model Semester_2_Web.Pages.RegisterModel
+@{
+    Layout = "_Layout_Login";
+    ViewData["Title"] = "Register";
+}
+@if (!string.IsNullOrWhiteSpace(Model.Msg))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Msg
+    </div>
+}
+<div class="formcontainer">
+    <form method="post">
+        <h1>Register</h1><br>
+
+        <!--Email-->
+        <label asp-for="email" class="col-md-4 fs-5 control-label">E-mail</label>
+        <input asp-for="email" placeholder="Email" type="email" class="textaddress" />
+        <span class="alert-danger" asp-validation-for="email"></span>
+        <br />
+        <!--Username-->
+        <label asp-for="username" class="col-md-4 fs-5 control-label">Username</label>
+        <input asp-for="username" placeholder="Username" type="text" class="textaddress" />
+        <span class="alert-danger" asp-validation-for="username"></span>
+        <br />
+        <!--Password-->
+        <label asp-for="password" class="col-md-4 fs-5 control-label">Password</label>
+        <input asp-for="password" placeholder="Password" type="password" class="textaddress" />
+        <span class="alert-danger" asp-validation-for="password"></span>
+        <br />
+        <!--Confirm Password-->
+        <label asp-for="confirmpassword" class="col-md-4 fs-5 control-label">Confirm Password</label>
+        <input asp-for="confirmpassword" placeholder="Confirm Password" type="password" class="textaddress" />
+        <span class="alert-danger" asp-validation-for="confirmpassword"></span>
+        <br />
+        <!--Firstname-->
+        <label asp-for="Firstname" class="col-md-4 fs-5 control-label">First Name</label>
+        <input asp-for="Firstname" placeholder="Firstname" type="text" class="textaddress">
+        <br /><span asp-validation-for="Firstname"></span><br />
+        <!--Lastname-->
+        <label asp-for="Lastname" class="col-md-4 fs-5 control-label">Last Name</label>
+        <input asp-for="Lastname" placeholder="Lastname" class="textaddress" type="text">
+        <br /><span asp-validation-for="Lastname"></span><br />
+        <!--Address-->
+        <label asp-for="Address" class="col-md-4 fs-5 control-label">Address</label>
+        <textarea asp-for="Address" placeholder="Address" type="text" class="textaddress"></textarea>
+        <br /><span asp-validation-for="Address"></span><br />
+        <!--Birthdate-->
+        <label asp-for="Birthdate" class="col-md-4 fs-5 control-label">Birthdate</label>
+        <input asp-for="Birthdate" type="date" value="yyyy-mm-dd" class="textaddress">
+        <br/> <span asp-validation-for="Birthdate"></span><br/>
+        <!--Register Button-->
+        <div class="Button-Container">
+            <input type="submit" class="btn btn-primary" value="Register" /><br />
+        </div>
+        <p>Already have an account yet? <a asp-page="Login">Log In Here</a></p>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+    </form>
+</div>

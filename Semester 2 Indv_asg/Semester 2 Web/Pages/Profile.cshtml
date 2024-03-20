@@ -1,0 +1,106 @@
+﻿@page
+@model Semester_2_Web.Pages.ProfileModel
+@{
+}
+@if (!string.IsNullOrWhiteSpace(Model.Msg))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Msg
+    </div>
+}
+<div class="container marketing backgroundcolorwhite">
+    <!--<p>User.FindFirst("id").Value</p>-->
+	<form method="post">
+        <label asp-for="Email" class="col-form-label-lg">Email:</label>
+        <input asp-for="Email" type="email" value="@User.FindFirst("email").Value" class="form-control-plaintext">
+        <label asp-for="Username" class="col-form-label-lg">Username:</label>
+        <input asp-for="Username" type="text" value="@User.Identity.Name" class="form-control-plaintext">
+        <label asp-for="Firstname" class="col-form-label-lg">First Name:</label>
+        <input asp-for="Firstname" type="text" value="@User.FindFirst("firstname").Value" class="form-control-plaintext">
+        <label asp-for="lastname" class="col-form-label-lg">Last Name:</label>
+        <input asp-for="lastname" type="text" value="@User.FindFirst("lastname").Value" class="form-control-plaintext">
+        <label asp-for="Address" class="col-form-label-lg">Address:</label>
+        <input asp-for="Address" type="text" value="@User.FindFirst("address").Value" class="form-control-plaintext">
+        <label asp-for="Birthdate" class="col-form-label-lg">Birthdate:</label>
+        <input asp-for="Birthdate" type="date" value="@Convert.ToDateTime(User.FindFirst("birthdate").Value).ToString("yyyy-MM-dd")" class="form-control-plaintext">
+        <br/>
+        <div class="Button-Container">
+            <input type="submit" class="btn btn-primary" value="Update Profile">
+        </div>
+        <br/>
+	</form>
+</div>
+
+<h2 class="modal-title">Adopted Animals</h2>
+<br/>
+<div class="container marketing backgroundcolorwhite">
+    <form method="get">
+        <label>Species: </label>
+        <select asp-for="speciesFilter">
+            <option value="empty">-</option>
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            @*<option value="bird">Bird</option>
+            <option value="hamster">Hamster</option>*@
+        </select>
+        <label>Search by</label>
+        <select asp-for="SearchBy">
+            <option value="name">Name</option>
+            <option value="shelter">Shelter</option>
+        </select>
+        <input type="text" placeholder="Search..." asp-for="SearchTerm" />
+        <button class="btn btn-info" type="submit">View Adopted Animals</button>
+    </form>
+    <div class="row card_spacing" style="margin:auto 50px;">
+        @if (Model.paginatedAnimals != null)
+        {
+            foreach (var animal in Model.paginatedAnimals)
+            {
+                <div class="col-md-3">
+                    <div class="card thumb-wrapper">
+                        <div class="img-box">
+                            <img src="@animal.imagelink" class="card-img-top img-fluid object-fit-cover aspect-ratio-1-1" asp-append-version="true">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title fw-bolder">@animal.name</h3>
+                            <h4 class="card-subtitle">@animal.gender | @animal.age</h4>
+                            <p class="card-footer">Species: @animal.species</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <br />
+</div>
+@if (Model.paginatedAnimals != null)
+{
+    <div class="pagination">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                @if (Model.paginatedAnimals.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        @*<a class="page-link" href="?pageIndex=@(Model.paginatedAnimals.PageIndex - 1)&amp;searchTerm=@Model.SearchTerm">Previous</a>*@
+                        <a class="page-link" asp-page="/Profile" asp-route-PageIndex="@(Model.paginatedAnimals.PageIndex - 1)" asp-route-speciesFilter="@Model.speciesFilter" asp-route-SearchBy="@Model.SearchBy" asp-route-SearchTerm="@Model.SearchTerm">Prev</a>
+                    </li>
+                }
+                @foreach (int pageNumber in ViewData["VisiblePageNumbers"] as IEnumerable<int>)
+                {
+                    <li class="page-item @(pageNumber == Model.paginatedAnimals.PageIndex ? "active" : "")">
+                        @*<a class="page-link" href="?pageIndex=@pageNumber&amp;speciesFilter=@Model.speciesFilter&amp;SearchBy=@Model.SearchBy&amp;searchTerm=@Model.SearchTerm">@pageNumber</a>*@
+                        <a class="page-link" asp-page="/Profile" asp-route-PageIndex="@pageNumber" asp-route-speciesFilter="@Model.speciesFilter" asp-route-SearchBy="@Model.SearchBy" asp-route-SearchTerm="@Model.SearchTerm">@pageNumber</a>
+                    </li>
+                }
+                @if (Model.paginatedAnimals.HasNextPage)
+                {
+                    <li class="page-item">
+                        @*<a class="page-link" href="?pageIndex=@(Model.paginatedAnimals.PageIndex + 1)&amp;searchTerm=@Model.SearchTerm">Next</a>*@
+                        <a class="page-link" asp-page="/Profile" asp-route-PageIndex="@(Model.paginatedAnimals.PageIndex + 1)" asp-route-speciesFilter="@Model.speciesFilter" asp-route-SearchBy="@Model.SearchBy" asp-route-SearchTerm="@Model.SearchTerm">Next</a>
+                    </li>
+                }
+            </ul>
+
+    </nav>
+</div>
+}

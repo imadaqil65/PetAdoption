@@ -1,0 +1,66 @@
+﻿@page
+@model Semester_2_Web.Pages.AdvancedFilterCatsModel
+@{
+}
+<a class="btn btn-info" onclick="history.go(-1)">Go back</a>
+<br />
+<div class="container marketing backgroundcolorwhite">
+    <br />
+    <div class="row card_spacing" style="margin:auto 50px;">
+        @foreach (var animal in Model.paginatedAnimals)
+        {
+            <div class="col-md-3">
+                <div class="card thumb-wrapper">
+                    <div class="img-box">
+                        <img src="@animal.imagelink" class="card-img-top img-fluid object-fit-cover aspect-ratio-1-1" asp-append-version="true">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title fw-bolder">@animal.name</h3>
+                        <h4 class="card-subtitle">@animal.breed</h4>
+                        <h4 class="card-subtitle">@animal.gender | @animal.age</h4>
+                        <p class="card-footer">Shelter: @animal.shelter</p>
+                        <a asp-page="/AnimalDetails" asp-route-ID="@animal.id" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<div class="pagination">
+    <nav>
+        <ul class="pagination">
+            @if (Model.paginatedAnimals.HasPreviousPage)
+            {
+                <li class="page-item @(Model.paginatedAnimals.HasPreviousPage ? "" : "disabled")">
+                    <a class="page-link" asp-page="/AdvancedFilterCats" asp-route-pageIndex="@(Model.paginatedAnimals.PageIndex - 1)"
+                   asp-route-breed="@Model.Breed" asp-route-gender="@Model.Gender" asp-route-color="@Model.Color"
+                   asp-route-sterile="@Model.Sterile" asp-route-minAge="@Model.MinAge" asp-route-maxAge="@Model.MaxAge">
+                    Previous
+                </a>
+            </li>
+            }
+            @foreach (var pageNumber in ViewData["VisiblePageNumbers"] as IEnumerable<int>)
+            {
+                <li class="page-item @(pageNumber == Model.paginatedAnimals.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-page="/AdvancedFilterCats" asp-route-pageIndex="@pageNumber"
+                   asp-route-breed="@Model.Breed" asp-route-gender="@Model.Gender" asp-route-color="@Model.Color"
+                   asp-route-sterile="@Model.Sterile" asp-route-minAge="@Model.MinAge" asp-route-maxAge="@Model.MaxAge">
+                        @pageNumber
+                    </a>
+                </li>
+            }
+            @if (Model.paginatedAnimals.HasNextPage)
+            {
+                <li class="page-item @(Model.paginatedAnimals.HasNextPage ? "" : "disabled")">
+                    <a class="page-link" asp-page="/AdvancedFilterCats" asp-route-pageIndex="@(Model.paginatedAnimals.PageIndex + 1)"
+                   asp-route-breed="@Model.Breed" asp-route-gender="@Model.Gender" asp-route-color="@Model.Color"
+                   asp-route-sterile="@Model.Sterile" asp-route-minAge="@Model.MinAge" asp-route-maxAge="@Model.MaxAge">
+                    Next
+                </a>
+            </li>
+            }
+        </ul>
+    </nav>
+
+</div>

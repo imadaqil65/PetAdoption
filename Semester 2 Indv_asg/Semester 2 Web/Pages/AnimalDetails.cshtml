@@ -1,0 +1,94 @@
+﻿@page
+@using Domain.enums
+@model Semester_2_Web.Pages.AnimalDetailsModel
+@{
+    ViewData["Title"] = $"Animal Details - {Model.animal.name}";
+}
+<br/>
+<section class="py-5 backgroundcolorwhite">
+    <div class="container">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="@Model.animal.imagelink"/></div>
+                <div class="col-md-6">
+                <h4 class="fs-3 fw-bold text-muted">Species: @Model.animal.species</h4>
+                <h1 class="display-4 fw-bolder">@Model.animal.name</h1>
+                <h4 class="fs-3 fw-bold text-muted">Shelter: @Model.shelter.name</h4> 
+                <h4 class="fs-5 fw-bold text-muted">@Model.shelter.address, @Model.shelter.location</h4>
+                <br />
+                @if(Model.animal.species == Species.cat) // If animal is a cat
+                {
+                    <ul>
+                        <li class="fs-3">Breed: @Model.cat.breed</li>
+                        <li class="fs-3">Furcolor: @Model.cat.furcolor</li>
+                        <li class="fs-3">allergies: @Model.cat.allergies</li>
+                    @switch(Model.cat.IsSterile){
+                            case true:
+                                <li class="fs-3">Sterile: Yes</li>
+                                break;
+                            case false:
+                                <li class="fs-3">Sterile No</li>
+                                break;
+                    }
+                    </ul>
+                }
+                else if (Model.animal.species == Species.dog) // If animal is a dog
+                {
+                    <ul>
+                        <li class="fs-3">Breed: @Model.dog.breed</li>
+                        @switch(Model.dog.housetrained){
+                            case true:
+                                <li class="fs-3">Housetrained: Yes</li>
+                                break;
+                            case false:
+                                <li class="fs-3">Housetrained: No</li>
+                                break;
+                        }
+                        <li class="fs-3">Activity Level: @Model.dog.activityLevel</li>
+                        @switch (Model.dog.sterile)
+                        {
+                            case true:
+                                <li class="fs-3">Sterile: Yes</li>
+                                break;
+                            case false:
+                                <li class="fs-3">Sterile No</li>
+                                break;
+                        }
+                    </ul>
+                }
+                else if (Model.animal.species == Species.bird) // If animal is a bird
+                {
+                    <ul>
+                        <li class="fs-3">Breed: @Model.bird.breed</li>
+                        <li class="fs-3">Wingspan: @Model.bird.wingspan</li>
+                        <li class="fs-3">Activity Level: @Model.bird.activityLevel</li>
+                        @switch (Model.bird.voicemimic)
+                        {
+                            case true:
+                                <li class="fs-3">Can mimic voices: Yes</li>
+                                break;
+                            case false:
+                                <li class="fs-3">Can mimic voices: No</li>
+                                break;
+                        }
+                    </ul>
+                }
+                else // If animal is a hamster
+                {
+
+                }
+                
+                <p>@Model.animal.description</p>
+                <br />
+                <div class="d-lg-flex">
+                    <form method="post">
+                        <input onclick="return confirm('Are you sure you want to Adopt this animal?')" class="btn btn-primary" type="submit" value="Adopt">
+                    </form>
+                </div>
+                <br />
+                <div class="d-lg-flex">
+                    <a class="btn btn-info" onclick="history.go(-1)">Go back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

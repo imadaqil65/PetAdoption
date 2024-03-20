@@ -1,0 +1,123 @@
+﻿@page
+@model Semester_2_Web.Pages.AdvancedFilterModel
+@{
+
+}
+<h1>Adoption Preferences</h1>
+<div class="container marketing backgroundcolorwhite">
+<form method="post">
+    <div class="form-group">
+            <label asp-for="Species" class="col-form-label-lg">Species:</label>
+            <select id="speciesSelect" class="form-control textaddress" asp-for="Species" placeholder="-">
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Bird">Bird</option>
+        </select>
+    </div>
+    <div class="form-group">
+            <label asp-for="gender" class="col-form-label-lg">Gender:</label>
+            <select class="form-control textaddress" asp-for="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+        <div class="form-group">
+            <label asp-for="MinAge" class="col-form-label-lg">Minimum Age:</label>
+            <input type="number" class="form-control textaddress" asp-for="MinAge" />
+        </div>
+        <div class="form-group">
+            <label asp-for="MaxAge" class="col-form-label-lg">Maximum Age:</label>
+            <input type="number" class="form-control textaddress" asp-for="MaxAge" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Breed" class="col-form-label-lg">Breed:</label>
+            <input type="text" placeholder="Breed" class="form-control textaddress" asp-for="Breed" />
+        </div>
+
+        <div id="catBreedContainer" style="display">
+            <div class="form-group">
+                <label asp-for="Color">Color:</label>
+                <select class="form-control textaddress" asp-for="Color">
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Grey">Grey</option>
+                    <option value="Brown">Brown</option>
+                    <option value="Calico">Calico</option>
+                    <option value="Cream">Cream</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sterile" class="col-form-label-lg">Sterile:</label>
+                <input type="checkbox" asp-for="Sterile" class="form-check" />
+            </div>
+        </div>
+
+    <div id="dogBreedContainer" style="display:none">
+        <div class="form-group">
+                <label asp-for="Level" class="col-form-label-lg">Activity Level:</label>
+                <select class="form-control textaddress" asp-for="Level">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+        <div class="form-group">
+                <label asp-for="Housetrained" class="col-form-label-lg">Housetrained:</label>
+                <input type="checkbox" asp-for="Housetrained" class="form-check" />
+        </div>
+        <div class="form-group">
+                <label asp-for="Sterile" class="col-form-label-lg">Sterile:</label>
+                <input type="checkbox" asp-for="Sterile" class="form-check" />
+        </div>
+    </div>
+
+        <div id="birdBreedContainer" style="display:none">
+            <div class="form-group">
+                <label asp-for="Level" class="col-form-label-lg">Activity Level:</label>
+                <select class="form-control textaddress" asp-for="Level">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinWingspan" class="col-form-label-lg">Minimum Wingspan (in cm):</label>
+                <input type="number" class="form-control textaddress" asp-for="MinWingspan" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxWingspan" class="col-form-label-lg">Maximum Wingspan (in cm):</label>
+                <input type="number" class="form-control textaddress" asp-for="MaxWingspan" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Mimic" class="col-form-label-lg">Voice Mimic:</label>
+                <input type="checkbox" asp-for="Mimic" class="form-check" />
+            </div>
+        </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Find Pets</button>
+</form>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#speciesSelect').change(function () {
+                var selectedSpecies = $(this).val();
+
+                // Hide all breed containers
+                $('#dogBreedContainer').hide();
+                $('#catBreedContainer').hide();
+                $('#birdBreedContainer').hide();
+
+                // Show the appropriate breed container based on the selected species
+                if (selectedSpecies === 'Dog') {
+                    $('#dogBreedContainer').show();
+                } else if (selectedSpecies === 'Cat') {
+                    $('#catBreedContainer').show();
+                } else if (selectedSpecies === 'Bird') {
+                    $('#birdBreedContainer').show();
+                }
+            });
+        });
+    </script>
+}

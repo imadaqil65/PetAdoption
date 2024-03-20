@@ -1,0 +1,50 @@
+﻿@page
+@model Semester_2_Web.Pages.ShelterModel
+@{
+}
+<form method="get">
+    <input type="text" placeholder="Search..." asp-for="SearchTerm" />
+    <button class="btn btn-info" type="submit">Search</button>
+</form>
+<div class="container text-center">
+    <div class="row row-cols-2">
+        @foreach(var shelter in Model.ListShelters)
+        {
+        <div class="col">
+            <div class="card">
+                <img src="/img/Animals/shelter.jpg" class="card-img-top" >
+                <div class="card-body">
+                        <a class="card-title fs-4" asp-page="/Animals" asp-route-SearchBy="shelter" asp-route-SearchTerm="@shelter.name">@shelter.name</a>
+                    <p class="card-text">Address: @shelter.address, @shelter.location</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="pagination">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            @if (Model.ListShelters.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-page="/Shelter" asp-route-pageIndex="@(Model.ListShelters.PageIndex - 1)" asp-route-searchTerm="@Model.SearchTerm">Previous</a>
+                </li>
+            }
+            @foreach (int pageNumber in ViewData["VisiblePageNumbers"] as IEnumerable<int>)
+            {
+                <li class="page-item @(pageNumber == Model.ListShelters.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-page="/Shelter" asp-route-pageIndex="@pageNumber" asp-route-searchTerm="@Model.SearchTerm">@pageNumber</a>
+                </li>
+            }
+            @if (Model.ListShelters.HasNextPage)
+            {
+                <li class="page-item">
+                <a class="page-link" asp-page="/Shelter" asp-route-pageIndex="@(Model.ListShelters.PageIndex + 1)" asp-route-searchTerm="@Model.SearchTerm">Next</a>
+                </li>
+            }
+        </ul>
+
+    </nav>
+</div>

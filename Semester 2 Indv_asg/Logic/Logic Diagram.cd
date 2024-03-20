@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Logic.Services.Animals.BirdService.BirdManager">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAQAABAAAAAIAAAAAAAAIAAQAgAAA=</HashCode>
+      <FileName>Services\Animals\BirdService\BirdManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.Animals.CatService.CatManager">
+    <Position X="11" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAQAAAAAAAAAIAAACAAAAEAAAAEIAAAAAAAA=</HashCode>
+      <FileName>Services\Animals\CatService\CatManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.Animals.DogService.DogManager">
+    <Position X="9.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAIgCAAAAAAAAIAAIAAEAAAAA=</HashCode>
+      <FileName>Services\Animals\DogService\DogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.Animals.AnimalManager">
+    <Position X="7.25" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAQAAgQAAAAAAAAAAAAAIAAAACAAAAACIAICAAAAAhE=</HashCode>
+      <FileName>Services\Animals\AnimalManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.ShelterService.ShelterManager">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQQAAAACBAAAAAAAAAAABAIAAAAgAAA=</HashCode>
+      <FileName>Services\ShelterService\ShelterManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.UserService.UserManager">
+    <Position X="3.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAECAAEAAEiggAAAQAAAAACAAIAAACAAAA=</HashCode>
+      <FileName>Services\UserService\UserManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.PaginationAndFilter.PaginatedList&lt;T&gt;">
+    <Position X="1.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAACAAAAAAAEAAUAAQAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Services\PaginationAndFilter\PaginatedList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.PaginationAndFilter.Pagination&lt;T&gt;">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAABA=</HashCode>
+      <FileName>Services\PaginationAndFilter\Pagination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.Adoption.PendingAdoptionManager">
+    <Position X="5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgAAQAAAAAAAAAAAEABAAAAAgIAAAAAAAA=</HashCode>
+      <FileName>Services\Adoption\PendingAdoptionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic.Services.PaginationAndFilter.Filter&lt;T&gt;">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Services\PaginationAndFilter\Filter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Logic.Services.Animals.BirdService.IBirdDB">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAABAAAAAIAAAAAAAAAAAQAgAAA=</HashCode>
+      <FileName>Services\Animals\BirdService\IBirdDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.Animals.CatService.ICatDB">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAA=</HashCode>
+      <FileName>Services\Animals\CatService\ICatDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.Animals.DogService.IDogDB">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAABAAAAAAAAAAgAAAAAAQAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Animals\DogService\IDogDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.Animals.IAnimalDB">
+    <Position X="7.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAIAAAAAAAAAAAAACAAAAEAAAACAAAEAAA=</HashCode>
+      <FileName>Services\Animals\IAnimalDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.ShelterService.IShelterDB">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAACAAAAAAAAAAAAAAAAAAAhAAA=</HashCode>
+      <FileName>Services\ShelterService\IShelterDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.UserService.IUserDB">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQAAAAAEAAAAAAAAAQEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\UserService\IUserDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Logic.Services.Adoption.IPendingAdoptionDB">
+    <Position X="5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAACEAAAEABAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Services\Adoption\IPendingAdoptionDB.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

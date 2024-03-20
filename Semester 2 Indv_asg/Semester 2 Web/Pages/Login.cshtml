@@ -1,0 +1,33 @@
+﻿@page
+@model Semester_2_Web.Pages.LoginModel
+@{
+	Layout = "_Layout_Login";
+	ViewData["Title"] = "Login";
+}
+
+
+@if (!string.IsNullOrWhiteSpace(Model.Msg))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Msg
+    </div>
+}
+<div class="formlogin backgroundcolorwhite">
+    <form method="post">
+        <h1>Login</h1><br />
+
+        <!--Username-->
+        <label class="col-md-4 control-label">Username</label>
+        <input asp-for="Username" type="text" class="form-control"/><br />
+        <span asp-validation-for="Username"></span><br />
+        <!--Password-->
+        <label class="col-md-4 control-label">Password</label>
+        <input class="form-control" asp-for="Password" type="password" /><br />
+        <span asp-validation-for="Password"></span><br />
+        <!--Login Button-->
+        <div class="Button-Container">
+            <input type="submit" class="btn btn-primary" value="Login" /><br />
+        </div>
+        <p>Don't have an account yet? <a asp-page="/Register">Register an Account</a></p>
+    </form>
+</div>
